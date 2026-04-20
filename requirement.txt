@@ -1,0 +1,27 @@
+// langchain core
+JS me alag core install nahi karna padta, sab ek hi package me aata hai.
+npm install langchain
+
+#openai Integration
+
+@langchain/openai
+openai
+
+#anthropic Integration
+@langchain/anthropic
+
+
+#google gemini Integration
+@langchain/google-genai
+@google/generative-ai
+
+#hugginface Integration
+@langchain/community
+@huggingface/inference
+
+
+for machine learning
+#Direct powerful equivalent nahi hai, but alternatives:
+mathjs → basic math
+ml.js → ML utilities
+tensorflow.js → deep learning
