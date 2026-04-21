@@ -4,10 +4,17 @@ const model = new ChatGroq({
     apiKey: ENV.GROQ_API_KEY,
     model: "openai/gpt-oss-20b",
     temperature: 0.3,
+    maxTokens: 1000
 });
 async function main() {
-    const res = await model.invoke("what is capital of India?");
-    console.log(res.content);
+    try {
+        const res = await model.invoke("who is father of cricket in India");
+        console.log("FULL RESPONSE:", res);
+        console.log("CONTENT:", res.content);
+    }
+    catch (err) {
+        console.error("ERROR:", err);
+    }
 }
 main();
 //# sourceMappingURL=chatModel.Groq.js.map
