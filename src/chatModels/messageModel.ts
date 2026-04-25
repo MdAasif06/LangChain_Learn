@@ -22,10 +22,40 @@ const model = new ChatGroq({
  * dictionary formate 
  */
 const messages=[
-    {role:"system",content:"You are a poetry expert"},
-    {role:"user",content:"Write a haiku about spring"},
-  {role:"assistant",content:"Cherry blossoms bloom..."},
+    // {role:"system",content:"You are a poetry expert"},
+    {role:"user",content:"Explain MERN stack in simple words"},
+  // {role:"assistant",content:"Cherry blossoms bloom..."},
 ]
 
-const response = await model.invoke(messages);
-console.log(response.content);
+// const response = await model.invoke(messages);
+// console.log(response.content);
+
+//using stream
+async function main() {
+  const stream = await model.stream(messages);
+
+  for await (const chunk of stream) {
+    const { content } = chunk;
+    if (typeof content === "string") {
+      process.stdout.write(content);
+    } else if (Array.isArray(content)) {
+      const text = content.map((part) => {
+          if (typeof part === "string") {
+            return part;
+          }
+
+          if (part && typeof part === "object" && "text" in part && typeof part.text === "string")
+          {
+            return part.text;
+          }
+          return "";
+        }).join("");
+
+      if (text) {
+        process.stdout.write(text);
+      }
+    }
+  }
+}
+
+main();
