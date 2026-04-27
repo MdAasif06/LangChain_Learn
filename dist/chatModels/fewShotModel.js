@@ -26,7 +26,7 @@ const finalPrompt = ChatPromptTemplate.fromMessages([
     ["human", "{input}"],
 ]);
 const formattedPrompt = await finalPrompt.format({
-    input: "What of the square of triangle?",
+    input: "2+10"
 });
 // console.log("formatted output", formattedPrompt);
 const response = await chat.invoke(formattedPrompt);
