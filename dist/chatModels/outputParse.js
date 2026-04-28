@@ -1,5 +1,5 @@
 import { StructuredOutputParser, CommaSeparatedListOutputParser, } from "@langchain/core/output_parsers";
-import { date, z } from "zod";
+import { z } from "zod";
 import { ChatGroq } from "@langchain/groq";
 import { PromptTemplate } from "@langchain/core/prompts";
 import { ENV } from "../config/env.js";
@@ -40,7 +40,7 @@ async function main() {
         //conver date ks--> date
         const finalDate = {
             ...parsed,
-            date: new Date.(parsed.date.toString())
+            date: new Date(parsed.date)
         };
         console.log("parsed output:\n", finalDate);
     }

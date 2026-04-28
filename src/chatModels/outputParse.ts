@@ -2,7 +2,7 @@ import {
   StructuredOutputParser,
   CommaSeparatedListOutputParser,
 } from "@langchain/core/output_parsers";
-import { date, z } from "zod";
+import {  z } from "zod";
 import { ChatGroq } from "@langchain/groq";
 import { PromptTemplate } from "@langchain/core/prompts";
 import { ENV } from "../config/env.js";

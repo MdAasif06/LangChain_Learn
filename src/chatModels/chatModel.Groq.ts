@@ -12,12 +12,12 @@ const model = new ChatGroq({
 
 // const topic:string = "JWT Authentication";
 const template = new PromptTemplate({
-  template: "Explain {topic} in simple english 3 line",
-  inputVariables: ["topic"],
+  template: "Answer the following question to the best of your ability:\n{question}",
+  inputVariables: ["question"],
 });
 
 const prompt=await template.format({
-  topic:"mongoDB"
+ question: "What's the weather like in Boston?",
 })
 
 async function main(): Promise<void> {
