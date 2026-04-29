@@ -18,7 +18,7 @@ const model = new ChatGroq({
 const modelWithTool = model.bindTools([getWeather]);
 async function main() {
     try {
-        const userQuery = "What's the temperature in Bihar in celcius?";
+        const userQuery = "What's the weather like in Bihar?";
         const response = await modelWithTool.invoke(userQuery);
         console.log("MODEL RESPONSE:", response);
         //check if tool call exists or not
